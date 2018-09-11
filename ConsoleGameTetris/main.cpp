@@ -2,7 +2,7 @@
 
 
 int main(){
-	gameLogic test; 
-	system("pause"); 
+	gameLogic app;
+	app.run(); //run loop.
 	return 0; 
 }

@@ -12,7 +12,7 @@ private:
 	
 	//stdout, stdin
 	HANDLE mConsoleOut;
-	HANDLE mConsoleInp;
+	
 
 	//array buffer console
 	CHAR_INFO* mBufferConsole; 
@@ -26,13 +26,16 @@ private:
 	void hideCursor(); 
 	void disableChangeSizeWindow(); 
 
+protected: 
+	HANDLE mConsoleInp;
 
 public:
 	consoleIO(int width, int height);
 	
 	void setChar(int x, int y, char symbol); 
 	char getChar(int x, int y);
+
 	void render(); 
-	~consoleIO();
+    ~consoleIO();
 };
 

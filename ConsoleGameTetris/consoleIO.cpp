@@ -17,7 +17,7 @@ consoleIO::consoleIO(int width, int height) : xSize(width), ySize(height), mDwBu
 	disableChangeSizeWindow(); 
 
 	if (!SetConsoleScreenBufferSize(mConsoleOut, windowBufSize)){
-		
+ 
 	}
 	if (!SetConsoleWindowInfo(mConsoleOut, TRUE, &windowSize)){
 		

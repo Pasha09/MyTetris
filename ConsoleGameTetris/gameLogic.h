@@ -1,12 +1,14 @@
 #pragma once
 
-#include "consoleIO.h"
+#include "loopRender.h"
 
 
-class gameLogic : public consoleIO
+class gameLogic : public loopRender
 {
-public:
+public: 
 	gameLogic();
+	virtual void KeyPressed(int btnCode); 
+	virtual void UpdateF(float deltaTime=0); 
 	~gameLogic();
 };
 
