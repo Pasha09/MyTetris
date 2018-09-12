@@ -1,5 +1,6 @@
 #include "consoleIO.h"
 
+consoleIO::consoleIO() : xSize(0), ySize(0){}
 
 consoleIO::consoleIO(int width, int height) : xSize(width), ySize(height), mDwBufferCoord({ 0, 0 }){
 	

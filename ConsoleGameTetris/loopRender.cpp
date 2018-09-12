@@ -1,7 +1,7 @@
 #include "loopRender.h"
 
 
-loopRender::loopRender(int width, int height) : consoleIO(width, height){}
+loopRender::loopRender(){}
 
 void loopRender::run(){
 	while(1){
@@ -11,6 +11,7 @@ void loopRender::run(){
 		}
 		UpdateF(); 
 		Sleep(1000);
+		render(); 
 	}
 }
 

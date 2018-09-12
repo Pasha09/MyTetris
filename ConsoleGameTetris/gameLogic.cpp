@@ -1,7 +1,7 @@
 #include "gameLogic.h"
 
 
-gameLogic::gameLogic() : loopRender(23, 21){      //here set sizeWindow. 
+gameLogic::gameLogic() : consoleIO(widthSize, heightSize){      //here set sizeWindow. widht and height
 
 }
 
@@ -14,4 +14,5 @@ void gameLogic::UpdateF(float deltaTime){
 }
 
 gameLogic::~gameLogic(){
+
 }

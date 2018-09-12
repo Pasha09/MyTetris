@@ -31,6 +31,7 @@ protected:
 
 public:
 	consoleIO(int width, int height);
+	consoleIO(); 
 	
 	void setChar(int x, int y, char symbol); 
 	char getChar(int x, int y);
