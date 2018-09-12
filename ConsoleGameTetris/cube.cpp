@@ -2,12 +2,12 @@
 
 
 cube::cube(){
-	x = 7; y = 1;
+	x = 19; y = 2;
 	createFigure();
 }
 
 void cube::startFigure(){
-	x = 19; y = 2;
+	x = 7; y = 1;
 	createFigure();
 }
 

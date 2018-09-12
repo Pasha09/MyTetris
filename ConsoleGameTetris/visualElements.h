@@ -11,8 +11,8 @@ class visualElements : virtual public consoleIO
 {
 public:
 	visualElements();
-	void paint(); 
-	void erase(); 
+	void paint(Figure *obj); 
+	void erase(Figure *obj);
 	~visualElements();
 };
 

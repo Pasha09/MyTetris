@@ -19,14 +19,18 @@ visualElements::visualElements(){
 	}
 }
 
-void visualElements::paint(){
-
+void visualElements::paint(Figure *obj){
+	int* const mPosXYPoints=obj->mPositionXYPoints; 
+	for (int i = 0; i < 8; i += 2){
+		setChar(mPosXYPoints[i], mPosXYPoints[i + 1], '*');
+	} 
 }
 
-void visualElements::erase(){
-
+void visualElements::erase(Figure *obj){
+	int* const mPosXYPoints = obj->mPositionXYPoints;
+	for (int i = 0; i < 8; i += 2){
+		setChar(mPosXYPoints[i], mPosXYPoints[i + 1], '.');
+	}
 }
 
-visualElements::~visualElements()
-{
-}
+visualElements::~visualElements(){}

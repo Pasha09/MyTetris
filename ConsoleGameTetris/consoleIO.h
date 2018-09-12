@@ -4,7 +4,7 @@
 #include "iostream"
 #include "string"
 #include "stdio.h"
-
+#include "Figure.h"
 
 class consoleIO{
 private: 

@@ -5,6 +5,11 @@
 
 class loopRender : virtual public consoleIO
 {
+private: 
+	HANDLE mTimer;
+	HANDLE mTimerQueue;
+	static VOID CALLBACK TimerRoutine(PVOID lpParam, BOOL TimerOrWaitFired); 
+	static loopRender* pointerForTR; 
 public:
 	loopRender();
 	virtual void KeyPressed(int btnCode)=0;
