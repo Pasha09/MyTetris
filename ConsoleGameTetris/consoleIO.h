@@ -6,10 +6,11 @@
 #include "stdio.h"
 #include "Figure.h"
 
+
+
 class consoleIO{
 private: 
 	const int xSize, ySize; 
-	
 	//stdout, stdin
 	HANDLE mConsoleOut;
 	

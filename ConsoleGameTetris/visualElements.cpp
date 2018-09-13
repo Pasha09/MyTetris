@@ -5,7 +5,7 @@ visualElements::visualElements(){
 		//here I build border for Tetris.
 	for (int j = 0; j < heightSize; ++j){
 		//here i put # except 0, 5, 21 points.
-		if (j != 0 && j != 5 && j != heightSize){
+		if (j != 0 && j != 5 && j != heightSize-1){
 			for (int i = 1; i<borderRightofAreaForFallingFigure; ++i)setChar(i, j, '.'); //here I put '.'
 			//paint border for AreaForFallingFigure
 			setChar(0, j, '#'); setChar(borderRightofAreaForFallingFigure, j, '#');
@@ -14,7 +14,7 @@ visualElements::visualElements(){
 			setChar(0, j, '#'); 
 			for (int i = 1; i <= widthSize; ++i) { i<borderRightofAreaForFallingFigure ? setChar(i, j, '.') : setChar(i, j, '#'); }
 		} else {
-			for (int i = 0; i < (j == heightSize ? 17 : widthSize); ++i)setChar(i, j, '#');
+			for (int i = 0; i < (j == heightSize - 1 ? borderRightofAreaForFallingFigure+1 : widthSize); ++i)setChar(i, j, '#');
 		}
 	}
 }
@@ -31,6 +31,27 @@ void visualElements::erase(Figure *obj){
 	for (int i = 0; i < 8; i += 2){
 		setChar(mPosXYPoints[i], mPosXYPoints[i + 1], '.');
 	}
+}
+
+void visualElements::clearField(){
+	for (int i = 1; i < borderRightofAreaForFallingFigure; ++i)
+		for (int j = 1; j < heightSize-1; ++j){
+			setChar(i, j, '.');
+		}
+}
+
+void visualElements::deleteLine(int level){
+	for (int i = 1; i < borderRightofAreaForFallingFigure; ++i){
+		setChar(i, level, '.'); 
+	}
+}
+
+void visualElements::copyPasta(int level, int &levelDrop){
+	for (int i = 1; i < borderRightofAreaForFallingFigure; ++i){
+		setChar(i, levelDrop, getChar(i, level)); 
+	}
+	--levelDrop;
+	deleteLine(level); 
 }
 
 visualElements::~visualElements(){}

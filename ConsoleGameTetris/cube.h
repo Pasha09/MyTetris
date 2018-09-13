@@ -8,6 +8,8 @@ private:
 public:
 	cube();
 	virtual void createFigure();
+	virtual std::vector<int> conflictBorder(int direction);
+	virtual std::vector<int> getY(); 
 	virtual void startFigure(); 
 	~cube();
 };

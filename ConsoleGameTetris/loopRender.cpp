@@ -12,7 +12,7 @@ VOID CALLBACK loopRender::TimerRoutine(PVOID lpParam, BOOL TimerOrWaitFired){
 }
  
 void loopRender::run(){
-	CreateTimerQueueTimer(&mTimer, mTimerQueue, (WAITORTIMERCALLBACK)&loopRender::TimerRoutine, 0, 0, 1000, 0);
+	CreateTimerQueueTimer(&mTimer, mTimerQueue, (WAITORTIMERCALLBACK)&loopRender::TimerRoutine, 0, 1000, 1000, 0);
 	while(1){
 		if (_kbhit()){
 			KeyPressed(_getch());
@@ -26,4 +26,5 @@ void loopRender::run(){
 loopRender::~loopRender(){
 	DeleteTimerQueueTimer(mTimerQueue, mTimer, NULL);
 	DeleteTimerQueue(mTimerQueue);
+	pointerForTR = nullptr; 
 }

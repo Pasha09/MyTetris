@@ -4,10 +4,6 @@
 #include "visualElements.h"
 #include "cube.h"
 
-
-#define _AFXDLL 100
-
-
 class gameLogic : public loopRender, public visualElements
 {
 private:
@@ -18,8 +14,16 @@ private:
 	virtual void KeyPressed(int btnCode);
 	virtual void UpdateF(float deltaTime = 0);
 
+	bool guard(int direction); 
 	void nextFigure(Figure** pointer); 
 	void tempToFigure(); 
+	void checkGameOver();
+	
+	//delete line
+	void guardLine(); 
+	void dropLine(int level, int size);
+	inline int findLevelWhereDrop(int level, int size);
+	
 
 public: 
 	gameLogic();
