@@ -39,6 +39,9 @@
     <ClCompile Include="stick.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="tStick.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="consoleIO.h">
@@ -60,6 +63,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="stick.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tStick.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

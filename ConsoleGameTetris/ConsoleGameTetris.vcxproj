@@ -71,6 +71,7 @@
     <ClCompile Include="loopRender.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stick.cpp" />
+    <ClCompile Include="tStick.cpp" />
     <ClCompile Include="visualElements.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -80,6 +81,7 @@
     <ClInclude Include="gameLogic.h" />
     <ClInclude Include="loopRender.h" />
     <ClInclude Include="stick.h" />
+    <ClInclude Include="tStick.h" />
     <ClInclude Include="visualElements.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

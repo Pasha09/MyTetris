@@ -4,6 +4,7 @@
 #include "visualElements.h"
 #include "cube.h"
 #include "stick.h"
+#include "tStick.h"
 
 
 

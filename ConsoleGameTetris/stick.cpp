@@ -70,21 +70,6 @@ std::vector<int> stick::conflictBorder(int direction){
 	exit(1); //here is mistake 
 }
 
-std::vector<int> stick::getY(){
-	std::vector<int> valueY;
-	bool addValue;
-	for (int i = 1; i < 8; i += 2){
-		addValue = true;
-		for (int j = 0; j < valueY.size(); ++j){
-			if (valueY[j] == mPositionXYPoints[i]){
-				addValue = false; break;
-			}
-		}
-		if (addValue)valueY.push_back(mPositionXYPoints[i]);
-	}
-	return valueY;
-}
-
 void stick::rotate(){
 	x = mPositionXYPoints[0];
 	y = mPositionXYPoints[1];
