@@ -69,6 +69,7 @@
     <ClCompile Include="Figure.cpp" />
     <ClCompile Include="gameLogic.cpp" />
     <ClCompile Include="loopRender.cpp" />
+    <ClCompile Include="lStick.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stick.cpp" />
     <ClCompile Include="tStick.cpp" />
@@ -80,6 +81,7 @@
     <ClInclude Include="Figure.h" />
     <ClInclude Include="gameLogic.h" />
     <ClInclude Include="loopRender.h" />
+    <ClInclude Include="lStick.h" />
     <ClInclude Include="stick.h" />
     <ClInclude Include="tStick.h" />
     <ClInclude Include="visualElements.h" />

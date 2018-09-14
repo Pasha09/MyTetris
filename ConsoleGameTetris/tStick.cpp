@@ -32,81 +32,72 @@ std::vector<int> tStick::conflictBorder(int direction){
 							   for (int i = 0; i < 6; ++i){
 								   plusY(informationAboutPoints, i);
 							   }
-							   return informationAboutPoints;
 						   }
 						   else if (mPosition == mainDotRight){
 							   for (int i = 2; i < 8; ++i){
 								   if (i == 4)i = 6;
 								   plusY(informationAboutPoints, i); 
 							   }
-							   return informationAboutPoints;
 						   }
 						   else if (mPosition == mainDotDown){
 							   for (int i = 2; i < 8; ++i){
 								   plusY(informationAboutPoints, i);
 							   }
-							   return informationAboutPoints;
 						   }
 						   else if (mPosition == mainDotLeft){
 							   for (int i = 4; i < 8; ++i){
 								   plusY(informationAboutPoints, i);
 							   }
-							   return informationAboutPoints;
 						   }
+						   return informationAboutPoints;
 		}
 		case leftMove: {
 						   if (mPosition == mainDotUp){
 							   for (int i = 4; i < 8; ++i){
 								   minusX(informationAboutPoints, i);
 							   }
-							   return informationAboutPoints;
 						   }
 						   else if (mPosition == mainDotRight){
 							   for (int i = 0; i < 6; ++i){
 								   minusX(informationAboutPoints, i);
 							   }
-							   return informationAboutPoints;
 						   }
 						   else if (mPosition == mainDotDown){
 							   for (int i = 2; i < 8; ++i){
 								   if (i == 4)i = 6;
 								   minusX(informationAboutPoints, i);
 							   }
-							   return informationAboutPoints;
-						   }
+							}
 						   else if (mPosition == mainDotLeft){
 							   for (int i = 2; i < 8; ++i){
 								   minusX(informationAboutPoints, i);
 							   }
-							   return informationAboutPoints;
 						   }
+						   return informationAboutPoints;
 		}
 		case rightMove: {
 							if(mPosition == mainDotUp){
 								for (int i = 2; i < 8; ++i){
 									if (i == 4)i = 6; 
 									plusX(informationAboutPoints, i);
-								}
-								return informationAboutPoints;
+								} 
 							}
 						   else if (mPosition == mainDotRight){
 							   for (int i = 2; i < 8; ++i){
 								   plusX(informationAboutPoints, i);
-							   }
-							   return informationAboutPoints;
+							   } 
 						   }
 						   else if (mPosition == mainDotDown){
 							   for (int i = 4; i < 8; ++i){
 								   plusX(informationAboutPoints, i);
 							   }
-							   return informationAboutPoints;
 						   }
 						   else if (mPosition == mainDotLeft){
 							   for (int i = 0; i < 6; ++i){
 								   plusX(informationAboutPoints, i);
 							   }
-							   return informationAboutPoints;
 						   }
+						   return informationAboutPoints;
 		}
 	}
 	exit(1); //here is mistake
