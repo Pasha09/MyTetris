@@ -3,6 +3,9 @@
 #include "loopRender.h"
 #include "visualElements.h"
 #include "cube.h"
+#include "stick.h"
+
+
 
 class gameLogic : public loopRender, public visualElements
 {
@@ -15,6 +18,7 @@ private:
 	virtual void UpdateF(float deltaTime = 0);
 
 	bool guard(int direction); 
+	bool guardRotate(); 
 	void nextFigure(Figure** pointer); 
 	void tempToFigure(); 
 	void checkGameOver();

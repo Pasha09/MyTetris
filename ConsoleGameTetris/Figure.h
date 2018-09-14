@@ -5,7 +5,8 @@
 #define downMove 1
 #define leftMove 2
 #define rightMove 3
-
+#define front 0
+#define back 1
 
 class Figure
 {
@@ -17,7 +18,9 @@ public:
 	virtual void createFigure() = 0; 
 	virtual void startFigure() = 0;
 	virtual std::vector<int> conflictBorder(int direction) = 0;  
+	virtual std::vector<int> conflictBorderRotate(int side) = 0;
 	virtual std::vector<int> getY()=0; 
+	virtual void rotate() = 0; 
 	virtual ~Figure();
 
 	void down(); 

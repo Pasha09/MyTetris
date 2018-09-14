@@ -16,7 +16,7 @@ void gameLogic::KeyPressed(int btnCode){
 	if (btnCode == 80){ if (guard(1))figureDef->down(); else { paint(figureDef); tempToFigure(); return; } }
 	else if (btnCode == 75){ if (guard(2))figureDef->left(); }
 	else if (btnCode == 77){ if (guard(3))figureDef->right(); }
-	else if (btnCode == 32){}
+	else if (btnCode == 32){ if (guardRotate())figureDef->rotate(); }
 	paint(figureDef); 
 }
 
@@ -32,9 +32,10 @@ void gameLogic::UpdateF(float deltaTime){
 }
 
 void gameLogic::nextFigure(Figure** pointer){
-	int randnumber = 0;//= rand() % 6 + 0;
+	int randnumber = rand() % 2 + 0;
 	switch (randnumber){
 		case 0: {*pointer = new cube; break; }
+		case 1: {*pointer = new stick; break; }
 	}
 }
 
@@ -44,10 +45,12 @@ void gameLogic::tempToFigure(){
 		delete figureDef; 
 	}
 	figureDef = tempFigure; 
+	erase(tempFigure);
 	figureDef->startFigure(); 
 	checkGameOver(); 
 	paint(figureDef);
 	nextFigure(&tempFigure);
+	paint(tempFigure); 
 }
 
 bool gameLogic::guard(int direction){
@@ -56,6 +59,14 @@ bool gameLogic::guard(int direction){
 		if (getChar(informationAboutPoints[i], informationAboutPoints[i + 1]) == '*' || getChar(informationAboutPoints[i], informationAboutPoints[i + 1]) == '#')return false; 
 	}
 	return true; 
+}
+
+bool gameLogic::guardRotate(){
+	std::vector<int> informationAboutPoints; 
+	for (int side = 0; side < 2; ++side){
+		informationAboutPoints = figureDef->conflictBorderRotate(side);
+	}
+	return false; 
 }
 
 void gameLogic::checkGameOver(){
@@ -72,14 +83,16 @@ void gameLogic::guardLine(){
 	std::vector<int> valueY=figureDef->getY();
 	int min = valueY[0];
 	bool deleteLineBool=true; 
-	bool checkDelete = false; 
+	bool checkDelete = true; 
 	for (int i = 0; i < valueY.size(); ++i){
 		deleteLineBool = true;
+		checkDelete = true;
 		if (min>valueY[i])min = valueY[i]; 
 		for (int j = 1; j < borderRightofAreaForFallingFigure; ++j){
 			if (getChar(j, valueY[i]) != '*'){
-				deleteLineBool = false; break;
-				checkDelete = true; 
+				deleteLineBool = false;
+				checkDelete = false;
+				break;
 			}
 		}
 		if (deleteLineBool){ deleteLine(valueY[i]); }
@@ -91,11 +104,12 @@ void gameLogic::dropLine(int level, int size){
 	//find level when to drop
 	int levelForDrop=findLevelWhereDrop(level,size); 
 	//find line for copy
-	for (int i = levelForDrop-1; i >= 1; --i){
+	for (int i = levelForDrop; i >= 1; --i){
 		//checkLine
 		for (int j = 1; j < borderRightofAreaForFallingFigure; ++j){
-			if (getChar(i, j) == '*'){
+			if (getChar(j, i) == '*'){
 				copyPasta(i, levelForDrop); 
+				break; 
 			}
 		}
 	}
@@ -105,7 +119,7 @@ void gameLogic::dropLine(int level, int size){
 int gameLogic::findLevelWhereDrop(int level, int size){
 	int fLevel, startFind = level + size - 1;
 	bool check = true; 
-	for (int i = startFind; i<=level; ++i){
+	for (int i = startFind; i>=level; ++i){
 		for (int j = 1; j < borderRightofAreaForFallingFigure; ++j){
 			if (getChar(i, j) == '*'){
 				check = false;
