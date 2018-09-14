@@ -10,7 +10,7 @@ stick::stick(){
 
 void stick::startFigure(){
 	if (mPosition == vertical) { x = 7; y = 2; }
-	else { x = 8; y = 1; }
+	else { x = 7; y = 1; }
 	createFigure();
 }
 

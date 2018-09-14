@@ -9,7 +9,7 @@ tStick::tStick(){
 }
 
 void tStick::startFigure(){
-	x = 8;  y = 2;
+	x = 7;  y = 2;
 	if (mPosition == mainDotDown)y = 1;
 	createFigure(); 
 }

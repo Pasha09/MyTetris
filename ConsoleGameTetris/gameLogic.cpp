@@ -32,12 +32,13 @@ void gameLogic::UpdateF(float deltaTime){
 }
 
 void gameLogic::nextFigure(Figure** pointer){
-	int randnumber = rand() % 4 + 0;
+	int randnumber = rand() % 5 + 0;
 	switch (randnumber){
 		case 0: {*pointer = new cube; break; }
 		case 1: {*pointer = new stick; break; }
 		case 2: {*pointer = new tStick; break; }
 		case 3: {*pointer = new lStick; break; }
+		case 4: {*pointer = new jStick;  break; }
 	}
 }
 

@@ -68,6 +68,7 @@
     <ClCompile Include="cube.cpp" />
     <ClCompile Include="Figure.cpp" />
     <ClCompile Include="gameLogic.cpp" />
+    <ClCompile Include="jStick.cpp" />
     <ClCompile Include="loopRender.cpp" />
     <ClCompile Include="lStick.cpp" />
     <ClCompile Include="main.cpp" />
@@ -80,6 +81,7 @@
     <ClInclude Include="cube.h" />
     <ClInclude Include="Figure.h" />
     <ClInclude Include="gameLogic.h" />
+    <ClInclude Include="jStick.h" />
     <ClInclude Include="loopRender.h" />
     <ClInclude Include="lStick.h" />
     <ClInclude Include="stick.h" />

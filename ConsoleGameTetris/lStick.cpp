@@ -9,8 +9,8 @@ lStick::lStick(){
 }
 
 void lStick::startFigure(){
-	if (mPosition == mainDotDown){ x = 8; y = 1; }
-	else { x = 8; y = 2; }
+	if (mPosition == mainDotDown){ x = 7; y = 1; }
+	else { x = 7; y = 2; }
 	createFigure();
 }
 
