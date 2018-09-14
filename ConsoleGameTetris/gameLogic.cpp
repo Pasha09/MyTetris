@@ -103,8 +103,10 @@ void gameLogic::guardLine(){
 			}
 		}
 		if (deleteLineBool){ deleteLine(valueY[i]); }
+		if (checkDelete)dropLine(min, valueY.size()); //check later 
 	}
-	if (checkDelete)dropLine(min, valueY.size()); //check later 
+	
+	
 }
 
 void gameLogic::dropLine(int level, int size){
