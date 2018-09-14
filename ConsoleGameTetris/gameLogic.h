@@ -29,6 +29,8 @@ private:
 	void guardLine(); 
 	void dropLine(int level, int size);
 	inline int findLevelWhereDrop(int level, int size);
+
+	inline int findMin(std::vector<int>valueY); 
 	
 
 public: 

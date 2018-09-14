@@ -87,15 +87,22 @@ void gameLogic::checkGameOver(){
 	}
 }
 
+int gameLogic::findMin(std::vector<int>valueY){
+	int min = valueY[0]; 
+	for (int i = 0; i < valueY.size(); ++i){
+		if (min>valueY[i])min = valueY[i];
+	}
+	return min; 
+}
+
 void gameLogic::guardLine(){
 	std::vector<int> valueY=figureDef->getY();
-	int min = valueY[0];
+	int min = findMin(valueY);
 	bool deleteLineBool=true; 
 	bool checkDelete = true; 
 	for (int i = 0; i < valueY.size(); ++i){
 		deleteLineBool = true;
 		checkDelete = true;
-		if (min>valueY[i])min = valueY[i]; 
 		for (int j = 1; j < borderRightofAreaForFallingFigure; ++j){
 			if (getChar(j, valueY[i]) != '*'){
 				deleteLineBool = false;
@@ -127,7 +134,7 @@ void gameLogic::dropLine(int level, int size){
 
 
 int gameLogic::findLevelWhereDrop(int level, int size){
-	int fLevel, startFind = level + size - 1;
+	int fLevel, startFind = level + size-1;
 	bool check = true; 
 	for (int i = startFind; i>=level; --i){
 		for (int j = 1; j < borderRightofAreaForFallingFigure; ++j){

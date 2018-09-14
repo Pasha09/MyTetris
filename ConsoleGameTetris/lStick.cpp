@@ -58,6 +58,7 @@ std::vector<int> lStick::conflictBorder(int direction){
 			case leftMove: {
 							   if (mPosition == mainDotUp){
 								   for (int i = 4; i < 8; ++i){
+									   minusX(informationAboutPoints, i);
 								   }  
 							   }
 							   else if (mPosition == mainDotRight){
