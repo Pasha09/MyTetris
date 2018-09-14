@@ -51,6 +51,11 @@ std::vector<int> cube::conflictBorder(int direction){
 	exit(1); //here is mistake 
 }
 
+std::vector<int> cube::conflictBorderRotate(){
+	std::vector<int>informationAboutPoints;
+	return informationAboutPoints; 
+}
+
 std::vector<int> cube::getY(){
 	std::vector<int> valueY;
 	bool addValue; 

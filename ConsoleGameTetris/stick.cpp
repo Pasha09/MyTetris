@@ -93,36 +93,53 @@ void stick::rotate(){
 	createFigure();
 }
 
-std::vector<int> stick::conflictBorderRotate(int side){
+std::vector<int> stick::conflictBorderRotate(){
 	std::vector<int>informationAboutPoints;
-	if (side == front){
-		switch (mPosition){
+	for (int side = 0; side < 2; ++side){
+		if (side == front){
+			switch (mPosition){
 			case vertical: {
-							   for (int i = 2; i < 8; ++i){
+							   for (int i = 2; i < 8; i+=2){
 								   informationAboutPoints.push_back(mPositionXYPoints[i]);
-								   if ((i % 2))informationAboutPoints[informationAboutPoints.size() - 1] += 2;
+								   informationAboutPoints.push_back(mPositionXYPoints[i+1]);
+								   ++informationAboutPoints[informationAboutPoints.size() - 1]; 
+								   informationAboutPoints.push_back(mPositionXYPoints[i]);
+								   informationAboutPoints.push_back(mPositionXYPoints[i + 1]);
+								   informationAboutPoints[informationAboutPoints.size() - 1]+=2;
 							   }
-							   return informationAboutPoints; 
+							   break;
+ 
 			}
 			case horizontal: {
-								 for (int i = 2; i < 8; ++i){
+								 for (int i = 2; i < 8; i += 2){
 									 informationAboutPoints.push_back(mPositionXYPoints[i]);
-									 if (!(i % 2))informationAboutPoints[informationAboutPoints.size() - 1] -= 2;
+									 --informationAboutPoints[informationAboutPoints.size() - 1];
+									 informationAboutPoints.push_back(mPositionXYPoints[i+1]);
 								 }
-								 return informationAboutPoints;
+								 break;
+			}
 			}
 		}
-	}
-	else {
-		switch (mPosition){
-		case vertical: {
-						  
-						   return informationAboutPoints;
-		}
-		case horizontal: {
-							 
-						   return informationAboutPoints;
-		}
+		else {
+			switch (mPosition){
+			case vertical: {
+							   informationAboutPoints.push_back(mPositionXYPoints[2]);
+							   informationAboutPoints.push_back(mPositionXYPoints[3]);
+							   --informationAboutPoints[informationAboutPoints.size() - 1];
+							   break; 
+			}
+			case horizontal: {
+								 for (int i = 0; i < 4; i += 2){
+									 informationAboutPoints.push_back(mPositionXYPoints[i]);
+									 ++informationAboutPoints[informationAboutPoints.size() - 1];
+									 informationAboutPoints.push_back(mPositionXYPoints[i+1]);
+									 informationAboutPoints.push_back(mPositionXYPoints[i]);
+									 informationAboutPoints[informationAboutPoints.size() - 1] += 2;
+									 informationAboutPoints.push_back(mPositionXYPoints[i+1]);
+								 }
+								 break; 
+			}
+			}
 		}
 	}
 	return informationAboutPoints; 

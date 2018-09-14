@@ -18,7 +18,7 @@ public:
 	virtual void createFigure() = 0; 
 	virtual void startFigure() = 0;
 	virtual std::vector<int> conflictBorder(int direction) = 0;  
-	virtual std::vector<int> conflictBorderRotate(int side) = 0;
+	virtual std::vector<int> conflictBorderRotate() = 0;
 	virtual std::vector<int> getY()=0; 
 	virtual void rotate() = 0; 
 	virtual ~Figure();

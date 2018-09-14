@@ -57,16 +57,22 @@ bool gameLogic::guard(int direction){
 	std::vector<int> informationAboutPoints = figureDef->conflictBorder(direction); 
 	for (int i = 0; i < informationAboutPoints.size(); i+=2){
 		if (getChar(informationAboutPoints[i], informationAboutPoints[i + 1]) == '*' || getChar(informationAboutPoints[i], informationAboutPoints[i + 1]) == '#')return false; 
+		//setChar(informationAboutPoints[i], informationAboutPoints[i + 1], '!');
 	}
 	return true; 
 }
 
 bool gameLogic::guardRotate(){
-	std::vector<int> informationAboutPoints; 
-	for (int side = 0; side < 2; ++side){
-		informationAboutPoints = figureDef->conflictBorderRotate(side);
-	}
-	return false; 
+        std::vector<int> informationAboutPoints; 
+		informationAboutPoints = figureDef->conflictBorderRotate();
+		int size = informationAboutPoints.size() - 1;
+		for (int i = 0; i <size; i += 2){
+			if (informationAboutPoints[i]){
+				if (getChar(informationAboutPoints[i], informationAboutPoints[i + 1]) == '*' || getChar(informationAboutPoints[i], informationAboutPoints[i + 1]) == '#')return false;
+			}
+			//setChar(informationAboutPoints[i], informationAboutPoints[i + 1], '!'); 
+		}
+	return true; 
 }
 
 void gameLogic::checkGameOver(){
@@ -119,9 +125,9 @@ void gameLogic::dropLine(int level, int size){
 int gameLogic::findLevelWhereDrop(int level, int size){
 	int fLevel, startFind = level + size - 1;
 	bool check = true; 
-	for (int i = startFind; i>=level; ++i){
+	for (int i = startFind; i>=level; --i){
 		for (int j = 1; j < borderRightofAreaForFallingFigure; ++j){
-			if (getChar(i, j) == '*'){
+			if (getChar(j, i) == '*'){
 				check = false;
 				break; 
 			}
