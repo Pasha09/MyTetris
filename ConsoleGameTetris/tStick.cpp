@@ -105,14 +105,16 @@ std::vector<int> tStick::conflictBorder(int direction){
 
 std::vector<int> tStick::conflictBorderRotate(){
 	std::vector<int>informationAboutPoints;
-	for (int side = 0; side < 2; ++side){
-		if (side == front){
 			switch (mPosition){
 				case mainDotUp: {
 									for (int i = 0; i < 4; i += 2){
 										informationAboutPoints.push_back(mPositionXYPoints[i]); 
 										plusY(informationAboutPoints, i + 1); 
  
+									}
+									for (int i = 2; i < 6; i += 2){
+										informationAboutPoints.push_back(mPositionXYPoints[i]);
+										minusY(informationAboutPoints, i + 1);
 									}
 									break;
 				}
@@ -121,12 +123,20 @@ std::vector<int> tStick::conflictBorderRotate(){
 										   plusX(informationAboutPoints, i);
 										   informationAboutPoints.push_back(mPositionXYPoints[i+1]);
 									   }
+									   for (int i = 0; i < 4; i += 2){
+										   minusX(informationAboutPoints, i);
+										   informationAboutPoints.push_back(mPositionXYPoints[i + 1]);
+									   }
 									   break;
 				}
 				case mainDotDown: {
 									  for (int i = 2; i < 6; i += 2){
 										  informationAboutPoints.push_back(mPositionXYPoints[i]);
 										  plusY(informationAboutPoints, i + 1);
+									  }
+									  for (int i = 0; i < 4; i += 2){
+										  informationAboutPoints.push_back(mPositionXYPoints[i]);
+										  minusY(informationAboutPoints, i + 1);
 									  }
 									  break;
 				}
@@ -135,43 +145,13 @@ std::vector<int> tStick::conflictBorderRotate(){
 										  minusX(informationAboutPoints, i);
 										  informationAboutPoints.push_back(mPositionXYPoints[i + 1]);
 									  }
+									  for (int i = 0; i <4; i += 2){
+										  plusX(informationAboutPoints, i);
+										  informationAboutPoints.push_back(mPositionXYPoints[i + 1]);
+									  }
 									  break;
 				}
 			}
-		}
-		else {
-			switch (mPosition){
-			case mainDotUp: {
-								for (int i = 2; i < 6; i += 2){
-									informationAboutPoints.push_back(mPositionXYPoints[i]);
-									minusY(informationAboutPoints, i + 1);
-								}
-								break;
-			}
-			case mainDotRight: {
-								   for (int i = 0; i < 4; i += 2){
-									   minusX(informationAboutPoints, i);
-									   informationAboutPoints.push_back(mPositionXYPoints[i + 1]);
-								   }
-								   break; 
-			}
-			case mainDotDown: {
-								  for (int i = 0; i < 4; i += 2){
-									  informationAboutPoints.push_back(mPositionXYPoints[i]);
-									  minusY(informationAboutPoints, i + 1);
-								  }
-								  break;
-			}
-			case mainDotLeft: {
-								  for (int i = 0; i <4; i += 2){
-									  plusX(informationAboutPoints, i);
-									  informationAboutPoints.push_back(mPositionXYPoints[i + 1]);
-								  }
-								  break;
-			}
-			}
-		}
-	}
 	return informationAboutPoints;
 }
 

@@ -32,13 +32,14 @@ void gameLogic::UpdateF(float deltaTime){
 }
 
 void gameLogic::nextFigure(Figure** pointer){
-	int randnumber = rand() % 5 + 0;
+	int randnumber = rand() % 6 + 0;
 	switch (randnumber){
 		case 0: {*pointer = new cube; break; }
 		case 1: {*pointer = new stick; break; }
 		case 2: {*pointer = new tStick; break; }
 		case 3: {*pointer = new lStick; break; }
 		case 4: {*pointer = new jStick;  break; }
+		case 5: {*pointer = new sStick; break;  }
 	}
 }
 
@@ -70,9 +71,7 @@ bool gameLogic::guardRotate(){
 		informationAboutPoints = figureDef->conflictBorderRotate();
 		int size = informationAboutPoints.size() - 1;
 		for (int i = 0; i <size; i += 2){
-			if (informationAboutPoints[i]){
-				if (getChar(informationAboutPoints[i], informationAboutPoints[i + 1]) == '*' || getChar(informationAboutPoints[i], informationAboutPoints[i + 1]) == '#')return false;
-			}
+ 			if (getChar(informationAboutPoints[i], informationAboutPoints[i + 1]) == '*' || getChar(informationAboutPoints[i], informationAboutPoints[i + 1]) == '#')return false;
 			//setChar(informationAboutPoints[i], informationAboutPoints[i + 1], '!'); 
 		}
 	return true; 

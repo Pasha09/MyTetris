@@ -21,7 +21,6 @@ void cube::createFigure(){
 
 std::vector<int> cube::conflictBorder(int direction){
 	std::vector<int>informationAboutPoints;
-//	informationAboutPoints.reserve(6);
 	switch (direction){
 		case downMove: {
 						   for (int i = 4; i < 8; i += 2){

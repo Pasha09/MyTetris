@@ -17,6 +17,18 @@ visualElements::visualElements(){
 			for (int i = 0; i < (j == heightSize - 1 ? borderRightofAreaForFallingFigure+1 : widthSize); ++i)setChar(i, j, '#');
 		}
 	}
+	//instruction
+	char text[][6] = {
+		{ "ctrl:" },
+		{ "arrow" },
+		{ "space" }};
+	for (int i = 17; i < 22; ++i){
+		setChar(i, 8, text[0][i-17]);
+		setChar(i, 9, text[1][i - 17]);
+		setChar(i, 10, text[2][i - 17]);
+	}
+	
+	
 }
 
 void visualElements::paint(Figure *obj){

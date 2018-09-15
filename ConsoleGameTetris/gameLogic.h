@@ -7,6 +7,7 @@
 #include "tStick.h"
 #include "lStick.h"
 #include "jStick.h"
+#include "sStick.h"
 
 
 

@@ -48,6 +48,9 @@
     <ClCompile Include="jStick.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="sStick.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="consoleIO.h">
@@ -78,6 +81,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="jStick.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sStick.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

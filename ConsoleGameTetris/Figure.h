@@ -5,8 +5,6 @@
 #define downMove 1
 #define leftMove 2
 #define rightMove 3
-#define front 0
-#define back 1
 
 class Figure
 {

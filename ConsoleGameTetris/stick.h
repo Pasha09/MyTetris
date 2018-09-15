@@ -17,5 +17,11 @@ public:
 	virtual void startFigure();
 	virtual void rotate(); 
 	~stick();
+
+	//for convenience read conflictBorder
+	inline void plusX(std::vector<int>& informationAboutPoints, int i);
+	inline void plusY(std::vector<int>& informationAboutPoints, int i);
+	inline void minusX(std::vector<int>& informationAboutPoints, int i);
+	inline void minusY(std::vector<int>& informationAboutPoints, int i);
 };
 
